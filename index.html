@@ -3,143 +3,135 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AK Trainer | Aardrijkskunde</title>
+<meta name="theme-color" content="#101a35">
+<title>ClassTrainer | Klas VM1B</title>
 <style>
-:root{--navy:#14213d;--blue:#2563eb;--sky:#eaf2ff;--green:#16a34a;--ink:#172033;--muted:#667085;--paper:#fff;--bg:#f4f7fb}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}
-header{background:linear-gradient(120deg,#14213d,#2563eb);color:white;padding:25px max(20px,calc((100% - 1050px)/2))}
-header h1{margin:0;font-size:30px}header p{margin:7px 0 0;color:#dbeafe}
-nav{display:flex;gap:8px;flex-wrap:wrap;max-width:1050px;margin:18px auto;padding:0 16px}
-nav button,.btn{border:0;border-radius:12px;padding:11px 15px;background:#e5eaf3;color:#23314b;font-weight:700;cursor:pointer}
-nav button.active,.btn.primary{background:var(--blue);color:white}
-main{max-width:1050px;margin:0 auto;padding:0 16px 50px}
-.panel{background:white;border-radius:18px;padding:22px;margin:12px 0;box-shadow:0 5px 20px #14213d0c}
-h2{margin:0 0 12px;color:var(--navy)}h3{margin:0 0 8px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
-.tile{border:1px solid #e5eaf3;border-radius:15px;padding:17px;background:#fff}
-.tile .emoji{font-size:26px}.muted{color:var(--muted);line-height:1.55}
-.stat{font-size:28px;font-weight:800;color:var(--blue)}
-button:focus,input:focus{outline:3px solid #93c5fd;outline-offset:2px}
-.card{min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--sky);border-radius:16px;padding:25px;margin:15px 0}
-.card .term{font-size:28px;font-weight:800;color:var(--navy)}.card .answer{font-size:18px;line-height:1.5;margin-top:15px}
-.row{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.row>*{flex:0 0 auto}
-.progress{height:10px;background:#e8edf5;border-radius:99px;overflow:hidden;margin:10px 0}.progress span{display:block;height:100%;background:var(--green);width:0}
-.choice{display:block;width:100%;text-align:left;background:white;border:1px solid #dce3ef;padding:13px;border-radius:12px;margin:8px 0;cursor:pointer}
-.choice:hover{border-color:var(--blue);background:#f5f8ff}.choice.correct{border-color:var(--green);background:#edfff3}.choice.wrong{border-color:#dc2626;background:#fff1f1}
-.feedback{padding:12px;border-radius:12px;margin-top:12px;background:#f1f5f9}.small{font-size:13px}
-input{padding:12px;border:1px solid #cbd5e1;border-radius:10px;font-size:16px;max-width:100%}
-.tag{display:inline-block;background:#eaf2ff;color:#1d4ed8;border-radius:99px;padding:5px 10px;font-size:12px;font-weight:700}
-footer{text-align:center;color:var(--muted);padding:25px}
-@media(max-width:600px){header h1{font-size:24px}.panel{padding:16px}nav button{flex:1}}
+:root{--navy:#101a35;--blue:#4169e1;--sky:#eaf0ff;--ink:#172033;--muted:#667085;--line:#e6eaf2;--bg:#f6f8fc;--white:#fff;--green:#16845b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input{font:inherit}button{cursor:pointer}
+.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+header{background:var(--navy);color:white;padding:18px 0 54px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:850;font-size:20px;letter-spacing:-.5px}
+.logo{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,#7394ff,#4169e1);display:grid;place-items:center;font-size:21px}
+.navlinks{display:flex;gap:8px;flex-wrap:wrap}
+.navlinks button{border:0;background:transparent;color:#dce5ff;padding:9px 12px;border-radius:10px;font-weight:650}
+.navlinks button:hover,.navlinks button.active{background:#26365d;color:white}
+.hero{padding-top:48px;display:grid;grid-template-columns:1.4fr .8fr;gap:28px;align-items:center}
+.eyebrow{color:#a9bdff;text-transform:uppercase;letter-spacing:1.8px;font-size:12px;font-weight:800}
+h1{font-size:clamp(34px,5vw,55px);line-height:1.04;letter-spacing:-2px;margin:12px 0}
+.hero p{color:#cbd5ed;max-width:560px;line-height:1.65;margin:0}
+.hero-card{background:#1d2b50;border:1px solid #34456e;border-radius:22px;padding:22px}
+.hero-card .big{font-size:34px;margin-bottom:6px}.hero-card strong{font-size:17px}.hero-card p{font-size:13px;margin-top:6px}
+.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid #435987;background:#26365d;color:#dce5ff;padding:7px 11px;border-radius:99px;font-size:12px;font-weight:700;margin-top:17px}
+main{padding:34px 0 70px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:8px 0 18px}
+h2{font-size:25px;letter-spacing:-.7px;margin:0 0 5px}.sub{color:var(--muted);font-size:14px;margin:0}
+.search{width:min(290px,100%);border:1px solid var(--line);background:white;border-radius:12px;padding:11px 13px;outline:none}
+.search:focus{border-color:var(--blue);box-shadow:0 0 0 3px #4169e122}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.subject{background:white;border:1px solid var(--line);border-radius:17px;padding:18px;text-align:left;transition:.18s;min-height:152px;color:var(--ink);box-shadow:0 4px 14px #1a2a4a08}
+.subject:hover{transform:translateY(-3px);border-color:#b9c8f5;box-shadow:0 10px 25px #1a2a4a12}
+.subject .emoji{font-size:27px}.subject h3{font-size:16px;margin:12px 0 5px}.subject p{font-size:12px;color:var(--muted);margin:0;line-height:1.5}
+.subject .arrow{float:right;color:#8b98b3;font-size:19px}
+.panel{display:none;background:white;border:1px solid var(--line);border-radius:20px;padding:24px;margin-top:22px}
+.panel.show{display:block}.panel-top{display:flex;justify-content:space-between;align-items:start;gap:15px}
+.close{border:1px solid var(--line);background:white;border-radius:10px;padding:8px 11px;color:var(--muted)}
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.tool{background:#f8faff;border:1px solid var(--line);border-radius:14px;padding:16px}
+.tool b{display:block;margin:7px 0 4px}.tool p{font-size:13px;color:var(--muted);margin:0;line-height:1.5}
+.notice{margin-top:24px;background:#edf3ff;border:1px solid #dce6ff;border-radius:18px;padding:22px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+.notice h2{font-size:20px}.notice p{color:#52617e;font-size:14px;line-height:1.6;margin:6px 0 0}
+.btn{background:var(--blue);color:white;border:0;border-radius:11px;padding:11px 16px;font-weight:750}
+.btn.secondary{background:white;color:var(--blue);border:1px solid #d4defa}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:25px}
+.info{background:white;border:1px solid var(--line);border-radius:16px;padding:18px}
+.info .icon{font-size:22px}.info h3{font-size:15px;margin:10px 0 5px}.info p{font-size:13px;color:var(--muted);line-height:1.55;margin:0}
+footer{padding:24px 0;color:#8791a5;font-size:12px;text-align:center;border-top:1px solid var(--line)}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.hero-card{max-width:420px}.tools{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}.notice{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.search{width:100%}}
+@media(max-width:480px){.nav{align-items:flex-start;flex-direction:column}.navlinks{width:100%}.navlinks button{padding:8px 9px}.grid{gap:10px}.subject{padding:14px;min-height:145px}.hero{padding-top:34px}}
 </style>
 </head>
 <body>
-<header><h1>📘 AK Trainer</h1><p>Aardrijkskunde oefenen voor jou en je klas · mavo/havo</p></header>
-<nav id="nav">
-<button class="active" data-tab="home">Start</button>
-<button data-tab="cards">Flashcards</button>
-<button data-tab="quiz">Oefentoets</button>
-<button data-tab="topo">Topografie</button>
-<button data-tab="check">Mijn voortgang</button>
-</nav>
-<main>
-<section id="home" class="view">
- <div class="panel">
-  <span class="tag">HOOFDSTUK 2 · PARAGRAAF 2.1 T/M 2.5</span>
-  <h2 style="margin-top:12px">Welkom bij jullie AK-leerwebsite!</h2>
-  <p class="muted">Oefen elke dag een beetje. Begin met flashcards, test jezelf daarna en herhaal wat nog lastig is.</p>
-  <div class="grid">
-   <div class="tile"><div class="emoji">🃏</div><h3>Flashcards</h3><p class="muted">Leer begrippen en controleer jezelf.</p><button class="btn primary" onclick="show('cards')">Begin leren</button></div>
-   <div class="tile"><div class="emoji">✍️</div><h3>Oefentoets</h3><p class="muted">Beantwoord vragen en krijg direct feedback.</p><button class="btn primary" onclick="show('quiz')">Start toets</button></div>
-   <div class="tile"><div class="emoji">🗺️</div><h3>Topografie</h3><p class="muted">Oefen plaatsen, provincies en hoofdsteden.</p><button class="btn primary" onclick="show('topo')">Oefen topo</button></div>
+<header id="top">
+ <div class="wrap">
+  <nav class="nav">
+   <div class="brand"><div class="logo">✦</div>ClassTrainer</div>
+   <div class="navlinks">
+    <button class="active" data-scroll="top">Startpagina</button>
+    <button data-scroll="vakken">Onze vakken</button>
+    <button data-scroll="insturen">Ingestuurd materiaal</button>
+   </div>
+  </nav>
+  <section class="hero">
+   <div>
+    <div class="eyebrow">Samen leren • Samen groeien</div>
+    <h1>Welkom bij<br>ClassTrainer.</h1>
+    <p>De leerplek voor onze klas. Oefen voor toetsen, herhaal de lesstof en help elkaar met goede samenvattingen.</p>
+    <div class="pill">● Titus Brandsma College · Velp · VM1B</div>
+   </div>
+   <div class="hero-card">
+    <div class="big">📚</div>
+    <strong>Al je schoolwerk op één plek</strong>
+    <p>Voor mavo/havo. Met zeven vakken en ruimte om samen leermateriaal te delen.</p>
+   </div>
+  </section>
+ </div>
+</header>
+<main class="wrap">
+ <section id="vakken">
+  <div class="section-head">
+   <div><h2>Kies een schoolvak</h2><p class="sub">Klik op een vak om te zien wat je kunt oefenen.</p></div>
+   <input class="search" id="search" type="search" placeholder="Zoek een schoolvak...">
   </div>
- </div>
- <div class="panel"><h2>Wat moet je leren?</h2><div class="grid">
-  <div class="tile"><b>2.1 – Een aarde vol mensen</b><p class="muted">Bevolking en mensen op aarde.</p></div>
-  <div class="tile"><b>2.2 – Cultuur in de wereld</b><p class="muted">Cultuur en verschillen tussen groepen.</p></div>
-  <div class="tile"><b>2.3 – Culturen in Nederland</b><p class="muted">Verschillende culturen in Nederland.</p></div>
-  <div class="tile"><b>2.4 – De bevolking van Nederland</b><p class="muted">Bevolking en bevolkingskenmerken.</p></div>
-  <div class="tile"><b>2.5 – Cultuur in Nederland</b><p class="muted">Cultuur in Nederland.</p></div>
-  <div class="tile"><b>Kaarten en atlas</b><p class="muted">Kaarten, grafieken, legenda en atlasvaardigheden.</p></div>
- </div></div>
- <div class="panel"><h2>Even belangrijk</h2><p class="muted">Dit is versie 1. De foto's van het leerblad zijn op sommige regels te onscherp om alle definities en toetsvragen betrouwbaar over te nemen. De topografie hieronder is alvast ingevuld op basis van wat leesbaar was. Stuur scherpe foto's van de pagina's of de begrippenlijst, dan kan deze website helemaal aansluiten op jullie lesstof.</p></div>
-</section>
-
-<section id="cards" class="view" hidden>
- <div class="panel"><h2>🃏 Flashcards</h2><p class="muted">Denk eerst zelf na en klik daarna op ‘Toon antwoord’.</p>
- <div class="row"><label for="topic">Onderwerp:</label><select id="topic" onchange="loadCard()" style="padding:10px;border-radius:10px;border:1px solid #cbd5e1"><option value="all">Alles</option><option value="topo">Topografie</option><option value="skills">Kaarten en atlas</option></select></div>
- <div class="card"><div class="tag" id="cardCount">Kaart 1</div><div class="term" id="term">Wat is een provinciehoofdstad?</div><div class="answer" id="answer" hidden>De stad waar het provinciebestuur zit.</div></div>
- <div class="row"><button class="btn" onclick="prevCard()">← Vorige</button><button class="btn primary" id="reveal" onclick="reveal()">Toon antwoord</button><button class="btn" onclick="nextCard()">Volgende →</button></div>
- </div>
-</section>
-
-<section id="quiz" class="view" hidden>
- <div class="panel"><h2>✍️ Oefentoets</h2><p class="muted">Kies het beste antwoord. Je krijgt meteen te zien of het goed is.</p>
- <div class="progress"><span id="qbar"></span></div><p class="small" id="qcount">Vraag 1</p>
- <h3 id="question">Wat is een legenda?</h3><div id="choices"></div><div id="feedback" class="feedback" hidden></div>
- <div class="row" style="margin-top:14px"><button class="btn primary" id="nextQ" onclick="nextQuestion()" disabled>Volgende vraag</button><button class="btn" onclick="restartQuiz()">Opnieuw</button></div>
- </div>
-</section>
-
-<section id="topo" class="view" hidden>
- <div class="panel"><h2>🗺️ Topografie oefenen</h2><p class="muted">Typ de provinciehoofdstad bij de provincie. Je kunt ook de plaatsen uit je eigen omgeving oefenen.</p>
- <div class="row"><button class="btn primary" onclick="setTopo('capitals')">Provincies & hoofdsteden</button><button class="btn" onclick="setTopo('area')">Eigen omgeving</button></div>
- <div class="tile" style="margin-top:15px"><p class="small" id="topoProgress">Vraag 1</p><h3 id="topoQuestion">Gelderland</h3><input id="topoInput" placeholder="Typ je antwoord" onkeydown="if(event.key==='Enter')checkTopo()"><button class="btn primary" onclick="checkTopo()" style="margin-left:6px">Controleer</button><div id="topoFeedback" class="feedback" hidden></div><button class="btn" onclick="nextTopo()" style="margin-top:10px">Volgende</button></div>
- <h3 style="margin-top:20px">Lijst om te leren</h3><div id="topoList" class="grid"></div>
- </div>
-</section>
-
-<section id="check" class="view" hidden>
- <div class="panel"><h2>📈 Mijn voortgang</h2><div class="grid">
- <div class="tile"><p class="muted">Flashcards bekeken</p><div class="stat" id="seen">0</div></div>
- <div class="tile"><p class="muted">Goede antwoorden oefentoets</p><div class="stat" id="correct">0</div></div>
- <div class="tile"><p class="muted">Topografie goed</p><div class="stat" id="topocorrect">0</div></div>
- </div><p class="muted">Je voortgang wordt op dit apparaat in deze browser bijgehouden.</p><button class="btn" onclick="resetProgress()">Voortgang wissen</button></div>
-</section>
+  <div class="grid" id="subjectGrid">
+   <button class="subject" data-name="Biologie"><span class="arrow">↗</span><span class="emoji">🧬</span><h3>Biologie</h3><p>Begrippen, samenvattingen en oefentoetsen</p></button>
+   <button class="subject" data-name="Duits"><span class="arrow">↗</span><span class="emoji">🇩🇪</span><h3>Duits</h3><p>Woordjes, grammatica en oefenen</p></button>
+   <button class="subject" data-name="Geschiedenis"><span class="arrow">↗</span><span class="emoji">🏛️</span><h3>Geschiedenis</h3><p>Tijdvakken, begrippen en oefenvragen</p></button>
+   <button class="subject" data-name="Wiskunde"><span class="arrow">↗</span><span class="emoji">📐</span><h3>Wiskunde</h3><p>Uitleg, sommen en stappenplannen</p></button>
+   <button class="subject" data-name="Nederlands"><span class="arrow">↗</span><span class="emoji">📝</span><h3>Nederlands</h3><p>Lezen, spelling en grammatica</p></button>
+   <button class="subject" data-name="Engels"><span class="arrow">↗</span><span class="emoji">🇬🇧</span><h3>Engels</h3><p>Woordjes, grammatica en lezen</p></button>
+   <button class="subject" data-name="Aardrijkskunde"><span class="arrow">↗</span><span class="emoji">🌍</span><h3>Aardrijkskunde</h3><p>Kaarten, topografie en begrippen</p></button>
+  </div>
+  <div class="panel" id="subjectPanel" aria-live="polite">
+   <div class="panel-top"><div><div class="eyebrow" style="color:#4169e1">Gekozen vak</div><h2 id="panelTitle">Biologie</h2><p class="sub">Kies wat je wilt oefenen. We vullen de vakken met jullie eigen leeroverzichten.</p></div><button class="close" id="closePanel">Sluiten ✕</button></div>
+   <div class="tools">
+    <div class="tool"><span>🗂️</span><b>Flitskaarten</b><p>Oefen begrippen en woordjes met vragen en antwoorden.</p></div>
+    <div class="tool"><span>✍️</span><b>Oefentoets</b><p>Test jezelf met meerkeuzevragen en open vragen.</p></div>
+    <div class="tool"><span>📖</span><b>Samenvatting</b><p>Lees de belangrijkste uitleg per hoofdstuk.</p></div>
+   </div>
+   <p class="sub" style="margin-top:16px">Er staat nog geen lesmateriaal in dit vak. Zodra je een leeroverzicht stuurt, voegen we jullie hoofdstukken toe.</p>
+  </div>
+ </section>
+ <section class="notice" id="insturen">
+  <div><h2>📨 Ingestuurd door klasgenoten</h2><p>Heeft iemand een goede samenvatting, oefenvragen of begrippenlijst? Stuur die naar jou als beheerder. Jij controleert het materiaal en zet het daarna op de website.</p></div>
+  <button class="btn secondary" id="howButton">Zo werkt het</button>
+ </section>
+ <section class="info-grid">
+  <div class="info"><div class="icon">🎯</div><h3>Oefen op jouw niveau</h3><p>De opdrachten zijn bedoeld voor VM1B op mavo/havo-niveau.</p></div>
+  <div class="info"><div class="icon">🤝</div><h3>Samen leren</h3><p>Klasgenoten kunnen handig leermateriaal delen. Jij controleert het eerst.</p></div>
+  <div class="info"><div class="icon">📈</div><h3>Stap voor stap beter</h3><p>Herhaal de onderwerpen die je lastig vindt en bereid je goed voor op toetsen.</p></div>
+ </section>
 </main>
-<footer>AK Trainer · Samen oefenen, samen beter worden.</footer>
+<footer><div class="wrap">ClassTrainer · Titus Brandsma College · VM1B · Mavo/havo<br><span style="display:block;margin-top:6px">Een leerproject voor onze klas</span></div></footer>
 <script>
-const cards=[
- {t:"Wat is een legenda?",a:"Een uitleg bij de symbolen en kleuren op een kaart.",c:"skills"},
- {t:"Wat is een kaartonderwerp?",a:"Het onderwerp dat een kaart laat zien, bijvoorbeeld bevolking of klimaat.",c:"skills"},
- {t:"Wat is een kaartsoort?",a:"Een soort kaart, bijvoorbeeld een thematische kaart of overzichtskaart.",c:"skills"},
- {t:"Waarvoor gebruik je een atlas?",a:"Om kaarten en geografische informatie op te zoeken.",c:"skills"},
- {t:"Wat is een provinciehoofdstad?",a:"De hoofdstad van een provincie; daar zit het provinciebestuur.",c:"topo"},
- {t:"Wat is de hoofdstad van Gelderland?",a:"Arnhem.",c:"topo"},
- {t:"Wat is de hoofdstad van Friesland?",a:"Leeuwarden.",c:"topo"},
- {t:"Wat is de hoofdstad van Noord-Holland?",a:"Haarlem.",c:"topo"},
- {t:"Wat is de hoofdstad van Zuid-Holland?",a:"Den Haag.",c:"topo"},
- {t:"Wat is de hoofdstad van Overijssel?",a:"Zwolle.",c:"topo"}
-];
-let cardIndex=0, seen=new Set(), quizIndex=0, quizScore=0, answered=false, topoMode="capitals",topoIndex=0,topoScore=0;
-const questions=[
- {q:"Wat laat een legenda zien?",o:["De uitleg van symbolen en kleuren","De schaal van een foto","Alle plaatsnamen in een land"],a:0,e:"Een legenda legt uit wat de kleuren en symbolen op de kaart betekenen."},
- {q:"Welke stad is de hoofdstad van Gelderland?",o:["Nijmegen","Arnhem","Apeldoorn"],a:1,e:"Arnhem is de hoofdstad van Gelderland."},
- {q:"Welke stad is de hoofdstad van Friesland?",o:["Drachten","Sneek","Leeuwarden"],a:2,e:"Leeuwarden is de hoofdstad van Friesland."},
- {q:"Waarvoor gebruik je een atlas?",o:["Om kaarten en geografische informatie te vinden","Om alleen foto's te bekijken","Om rekensommen te maken"],a:0,e:"In een atlas zoek je kaarten en geografische informatie op."},
- {q:"Welke stad is de hoofdstad van Zuid-Holland?",o:["Rotterdam","Den Haag","Leiden"],a:1,e:"Den Haag is de hoofdstad van Zuid-Holland."},
- {q:"Welke stad is de hoofdstad van Overijssel?",o:["Zwolle","Enschede","Deventer"],a:0,e:"Zwolle is de hoofdstad van Overijssel."}
-];
-const capitals=[["Gelderland","Arnhem"],["Groningen","Groningen"],["Friesland","Leeuwarden"],["Drenthe","Assen"],["Overijssel","Zwolle"],["Flevoland","Lelystad"],["Noord-Holland","Haarlem"],["Zuid-Holland","Den Haag"],["Utrecht","Utrecht"],["Zeeland","Middelburg"],["Noord-Brabant","'s-Hertogenbosch"],["Limburg","Maastricht"]];
-const area=["Arnhem","Velp","Rheden","Giesbeek","Duiven","Westervoort"];
-function show(id){document.querySelectorAll('.view').forEach(x=>x.hidden=true);document.getElementById(id).hidden=false;document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));if(id==="check")updateStats();if(id==="topo")renderTopoList()}
-document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>show(b.dataset.tab));
-function filtered(){let f=document.getElementById('topic').value;return cards.filter(x=>f==="all"||x.c===f)}
-function loadCard(){let arr=filtered();if(cardIndex>=arr.length)cardIndex=0;let c=arr[cardIndex];document.getElementById('term').textContent=c.t;document.getElementById('answer').textContent=c.a;document.getElementById('answer').hidden=true;document.getElementById('reveal').textContent="Toon antwoord";document.getElementById('cardCount').textContent=`Kaart ${cardIndex+1} van ${arr.length}`}
-function reveal(){document.getElementById('answer').hidden=false;document.getElementById('reveal').textContent="Antwoord bekeken";seen.add(filtered()[cardIndex].t);updateStats()}
-function nextCard(){cardIndex=(cardIndex+1)%filtered().length;loadCard()}function prevCard(){cardIndex=(cardIndex-1+filtered().length)%filtered().length;loadCard()}
-function drawQuestion(){let q=questions[quizIndex];answered=false;document.getElementById('qcount').textContent=`Vraag ${quizIndex+1} van ${questions.length}`;document.getElementById('qbar').style.width=(quizIndex/questions.length*100)+"%";document.getElementById('question').textContent=q.q;document.getElementById('feedback').hidden=true;document.getElementById('nextQ').disabled=true;document.getElementById('nextQ').textContent=quizIndex===questions.length-1?"Resultaat bekijken":"Volgende vraag";document.getElementById('choices').innerHTML="";q.o.forEach((v,i)=>{let b=document.createElement('button');b.className="choice";b.textContent=v;b.onclick=()=>answer(i,b);document.getElementById('choices').appendChild(b)})}
-function answer(i,b){if(answered)return;answered=true;let q=questions[quizIndex];let buttons=[...document.querySelectorAll('.choice')];buttons[q.a].classList.add('correct');if(i===q.a){quizScore++;}else b.classList.add('wrong');let f=document.getElementById('feedback');f.hidden=false;f.textContent=(i===q.a?"✅ Goed gedaan! ":"❌ Nog niet goed. ")+q.e;document.getElementById('nextQ').disabled=false;document.getElementById('qbar').style.width=((quizIndex+1)/questions.length*100)+"%";updateStats()}
-function nextQuestion(){if(!answered)return;if(quizIndex===questions.length-1){document.getElementById('question').textContent=`Klaar! Je had ${quizScore} van de questions.length vragen goed.`.replace("questions.length",questions.length);document.getElementById('choices').innerHTML="";document.getElementById('feedback').hidden=false;document.getElementById('feedback').textContent=`Je score: ${Math.round(quizScore/questions.length*10*10)/10}/10. Oefen de vragen die nog lastig waren.`;document.getElementById('nextQ').disabled=true;return}quizIndex++;drawQuestion()}
-function restartQuiz(){quizIndex=0;quizScore=0;drawQuestion()}
-function setTopo(m){topoMode=m;topoIndex=0;document.getElementById('topoInput').value="";document.getElementById('topoFeedback').hidden=true;drawTopo()}
-function currentTopo(){return topoMode==="capitals"?capitals[topoIndex]:[area[topoIndex],"Noem de plaats precies zoals in de lijst"]}
-function drawTopo(){let data=currentTopo();document.getElementById('topoQuestion').textContent=data[0];document.getElementById('topoProgress').textContent=`Vraag ${topoIndex+1} van ${(topoMode==="capitals"?capitals:area).length}`;document.getElementById('topoInput').value="";document.getElementById('topoFeedback').hidden=true}
-function checkTopo(){let data=currentTopo(),val=document.getElementById('topoInput').value.trim().toLowerCase(),fb=document.getElementById('topoFeedback');fb.hidden=false;if(topoMode==="capitals"){let ok=val===data[1].toLowerCase();fb.textContent=ok?"✅ Goed!":`❌ Het juiste antwoord is ${data[1]}.`;if(ok)topoScore++}else{fb.textContent=area.map((x,i)=>`${i+1}. ${x}`).join(" · ")+". Leer deze plaatsen uit je hoofd."}updateStats()}
-function nextTopo(){let max=(topoMode==="capitals"?capitals:area).length;topoIndex=(topoIndex+1)%max;drawTopo()}
-function renderTopoList(){let list=document.getElementById('topoList');list.innerHTML="";(topoMode==="capitals"?capitals:area.map(x=>[x,"Eigen omgeving"])).forEach(x=>{let d=document.createElement('div');d.className="tile";d.innerHTML=`<b>${x[0]}</b><p class="muted">${x[1]}</p>`;list.appendChild(d)})}
-function updateStats(){document.getElementById('seen').textContent=seen.size;document.getElementById('correct').textContent=quizScore;document.getElementById('topocorrect').textContent=topoScore}
-function resetProgress(){seen.clear();quizScore=0;topoScore=0;updateStats()}
-loadCard();drawQuestion();drawTopo();renderTopoList();updateStats();
+const panel=document.getElementById('subjectPanel');
+document.querySelectorAll('.subject').forEach(card=>card.addEventListener('click',()=>{
+ document.getElementById('panelTitle').textContent=card.dataset.name;
+ panel.classList.add('show');panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}));
+document.getElementById('closePanel').addEventListener('click',()=>panel.classList.remove('show'));
+document.getElementById('search').addEventListener('input',e=>{
+ const q=e.target.value.toLowerCase();
+ document.querySelectorAll('.subject').forEach(card=>card.style.display=card.dataset.name.toLowerCase().includes(q)?'block':'none');
+});
+document.querySelectorAll('[data-scroll]').forEach(btn=>btn.addEventListener('click',()=>{
+ document.getElementById(btn.dataset.scroll).scrollIntoView({behavior:'smooth'});
+ document.querySelectorAll('.navlinks button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+}));
+document.getElementById('howButton').addEventListener('click',()=>{
+ alert('1. Een klasgenoot maakt leermateriaal.\\n2. Die stuurt het naar jou als beheerder.\\n3. Jij controleert of het klopt.\\n4. Daarna voeg je het toe aan het juiste vak.\\n\\nHet e-mailadres koppelen we zodra je weet welk adres je wilt gebruiken.');
+});
 </script>
-</body></html>
+</body>
+</html>
