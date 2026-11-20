@@ -4,134 +4,157 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#101a35">
-<title>ClassTrainer | Klas VM1B</title>
+<title>ClassTrainer | VM1B</title>
 <style>
 :root{--navy:#101a35;--blue:#4169e1;--sky:#eaf0ff;--ink:#172033;--muted:#667085;--line:#e6eaf2;--bg:#f6f8fc;--white:#fff;--green:#16845b}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
-button,input{font:inherit}button{cursor:pointer}
-.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
-header{background:var(--navy);color:white;padding:18px 0 54px}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:11px;font-weight:850;font-size:20px;letter-spacing:-.5px}
-.logo{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,#7394ff,#4169e1);display:grid;place-items:center;font-size:21px}
-.navlinks{display:flex;gap:8px;flex-wrap:wrap}
-.navlinks button{border:0;background:transparent;color:#dce5ff;padding:9px 12px;border-radius:10px;font-weight:650}
-.navlinks button:hover,.navlinks button.active{background:#26365d;color:white}
-.hero{padding-top:48px;display:grid;grid-template-columns:1.4fr .8fr;gap:28px;align-items:center}
-.eyebrow{color:#a9bdff;text-transform:uppercase;letter-spacing:1.8px;font-size:12px;font-weight:800}
-h1{font-size:clamp(34px,5vw,55px);line-height:1.04;letter-spacing:-2px;margin:12px 0}
-.hero p{color:#cbd5ed;max-width:560px;line-height:1.65;margin:0}
-.hero-card{background:#1d2b50;border:1px solid #34456e;border-radius:22px;padding:22px}
-.hero-card .big{font-size:34px;margin-bottom:6px}.hero-card strong{font-size:17px}.hero-card p{font-size:13px;margin-top:6px}
-.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid #435987;background:#26365d;color:#dce5ff;padding:7px 11px;border-radius:99px;font-size:12px;font-weight:700;margin-top:17px}
-main{padding:34px 0 70px}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:8px 0 18px}
-h2{font-size:25px;letter-spacing:-.7px;margin:0 0 5px}.sub{color:var(--muted);font-size:14px;margin:0}
-.search{width:min(290px,100%);border:1px solid var(--line);background:white;border-radius:12px;padding:11px 13px;outline:none}
-.search:focus{border-color:var(--blue);box-shadow:0 0 0 3px #4169e122}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.subject{background:white;border:1px solid var(--line);border-radius:17px;padding:18px;text-align:left;transition:.18s;min-height:152px;color:var(--ink);box-shadow:0 4px 14px #1a2a4a08}
-.subject:hover{transform:translateY(-3px);border-color:#b9c8f5;box-shadow:0 10px 25px #1a2a4a12}
-.subject .emoji{font-size:27px}.subject h3{font-size:16px;margin:12px 0 5px}.subject p{font-size:12px;color:var(--muted);margin:0;line-height:1.5}
-.subject .arrow{float:right;color:#8b98b3;font-size:19px}
-.panel{display:none;background:white;border:1px solid var(--line);border-radius:20px;padding:24px;margin-top:22px}
-.panel.show{display:block}.panel-top{display:flex;justify-content:space-between;align-items:start;gap:15px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input,select{font:inherit}button{cursor:pointer}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+header{background:var(--navy);color:white;padding:18px 0 48px}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:850;font-size:20px}.logo{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,#7394ff,#4169e1);display:grid;place-items:center;font-size:21px}
+.navlinks{display:flex;gap:8px;flex-wrap:wrap}.navlinks button{border:0;background:transparent;color:#dce5ff;padding:9px 12px;border-radius:10px;font-weight:650}.navlinks button:hover,.navlinks button.active{background:#26365d;color:white}
+.hero{padding-top:44px;display:grid;grid-template-columns:1.4fr .8fr;gap:28px;align-items:center}.eyebrow{color:#a9bdff;text-transform:uppercase;letter-spacing:1.8px;font-size:12px;font-weight:800}
+h1{font-size:clamp(34px,5vw,55px);line-height:1.04;letter-spacing:-2px;margin:12px 0}.hero p{color:#cbd5ed;max-width:560px;line-height:1.65;margin:0}
+.hero-card{background:#1d2b50;border:1px solid #34456e;border-radius:22px;padding:22px}.hero-card .big{font-size:34px;margin-bottom:6px}.hero-card strong{font-size:17px}.hero-card p{font-size:13px;margin-top:6px}
+.pill{display:inline-flex;border:1px solid #435987;background:#26365d;color:#dce5ff;padding:7px 11px;border-radius:99px;font-size:12px;font-weight:700;margin-top:17px}
+main{padding:34px 0 70px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:8px 0 18px}
+h2{font-size:25px;letter-spacing:-.7px;margin:0 0 5px}.sub{color:var(--muted);font-size:14px;margin:0}.search{width:min(290px,100%);border:1px solid var(--line);background:white;border-radius:12px;padding:11px 13px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.subject{background:white;border:1px solid var(--line);border-radius:17px;padding:18px;text-align:left;min-height:150px;color:var(--ink);box-shadow:0 4px 14px #1a2a4a08}
+.subject:hover{border-color:#b9c8f5;box-shadow:0 10px 25px #1a2a4a12}.subject .emoji{font-size:27px}.subject h3{font-size:16px;margin:12px 0 5px}.subject p{font-size:12px;color:var(--muted);margin:0;line-height:1.5}.arrow{float:right;color:#8b98b3;font-size:19px}
+.panel{display:none;background:white;border:1px solid var(--line);border-radius:20px;padding:24px;margin-top:22px}.panel.show{display:block}.panel-top{display:flex;justify-content:space-between;align-items:start;gap:15px}
 .close{border:1px solid var(--line);background:white;border-radius:10px;padding:8px 11px;color:var(--muted)}
-.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
-.tool{background:#f8faff;border:1px solid var(--line);border-radius:14px;padding:16px}
-.tool b{display:block;margin:7px 0 4px}.tool p{font-size:13px;color:var(--muted);margin:0;line-height:1.5}
-.notice{margin-top:24px;background:#edf3ff;border:1px solid #dce6ff;border-radius:18px;padding:22px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
-.notice h2{font-size:20px}.notice p{color:#52617e;font-size:14px;line-height:1.6;margin:6px 0 0}
-.btn{background:var(--blue);color:white;border:0;border-radius:11px;padding:11px 16px;font-weight:750}
-.btn.secondary{background:white;color:var(--blue);border:1px solid #d4defa}
-.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:25px}
-.info{background:white;border:1px solid var(--line);border-radius:16px;padding:18px}
-.info .icon{font-size:22px}.info h3{font-size:15px;margin:10px 0 5px}.info p{font-size:13px;color:var(--muted);line-height:1.55;margin:0}
+.controls{display:flex;gap:12px;align-items:end;flex-wrap:wrap;background:#f8faff;border:1px solid var(--line);padding:15px;border-radius:14px;margin-top:18px}
+.field{display:grid;gap:6px}.field label{font-size:12px;color:var(--muted);font-weight:750}.field select{min-width:180px;padding:10px;border:1px solid #d8deea;border-radius:10px;background:white;color:var(--ink)}
+.btn{background:var(--blue);color:white;border:0;border-radius:11px;padding:11px 16px;font-weight:750}.btn.secondary{background:white;color:var(--blue);border:1px solid #d4defa}
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.tool{background:#f8faff;border:1px solid var(--line);border-radius:14px;padding:16px}.tool b{display:block;margin:7px 0 4px}.tool p{font-size:13px;color:var(--muted);margin:0;line-height:1.5}
+.quiz{display:none;margin-top:20px;border:1px solid var(--line);border-radius:16px;padding:20px}.quiz.show{display:block}.quiz-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.question{padding:16px 0;border-bottom:1px solid var(--line)}.question:last-child{border-bottom:0}.question p{font-weight:700;margin:0 0 10px}
+.answer{display:block;margin:8px 0;font-size:14px;color:#344054}.answer input{margin-right:8px;accent-color:var(--blue)}
+.result{display:none;margin-top:18px;background:#eef8f3;border:1px solid #ccebdc;border-radius:14px;padding:17px}.result.show{display:block}.grade{font-size:32px;font-weight:850;color:#13764e}
+.notice{margin-top:24px;background:#edf3ff;border:1px solid #dce6ff;border-radius:18px;padding:22px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}.notice h2{font-size:20px}.notice p{color:#52617e;font-size:14px;line-height:1.6;margin:6px 0 0}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:25px}.info{background:white;border:1px solid var(--line);border-radius:16px;padding:18px}.info .icon{font-size:22px}.info h3{font-size:15px;margin:10px 0 5px}.info p{font-size:13px;color:var(--muted);line-height:1.55;margin:0}
 footer{padding:24px 0;color:#8791a5;font-size:12px;text-align:center;border-top:1px solid var(--line)}
-@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.hero-card{max-width:420px}.tools{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr}.notice{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.search{width:100%}}
-@media(max-width:480px){.nav{align-items:flex-start;flex-direction:column}.navlinks{width:100%}.navlinks button{padding:8px 9px}.grid{gap:10px}.subject{padding:14px;min-height:145px}.hero{padding-top:34px}}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.tools,.info-grid{grid-template-columns:1fr}.notice{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.search{width:100%}}
+@media(max-width:480px){.nav{align-items:flex-start;flex-direction:column}.navlinks{width:100%}.navlinks button{padding:8px 9px}.grid{gap:10px}.subject{padding:14px}.hero{padding-top:30px}}
 </style>
 </head>
 <body>
-<header id="top">
- <div class="wrap">
-  <nav class="nav">
-   <div class="brand"><div class="logo">✦</div>ClassTrainer</div>
-   <div class="navlinks">
-    <button class="active" data-scroll="top">Startpagina</button>
-    <button data-scroll="vakken">Onze vakken</button>
-    <button data-scroll="insturen">Ingestuurd materiaal</button>
-   </div>
-  </nav>
-  <section class="hero">
-   <div>
-    <div class="eyebrow">Samen leren • Samen groeien</div>
-    <h1>Welkom bij<br>ClassTrainer.</h1>
-    <p>De leerplek voor onze klas. Oefen voor toetsen, herhaal de lesstof en help elkaar met goede samenvattingen.</p>
-    <div class="pill">● Titus Brandsma College · Velp · VM1B</div>
-   </div>
-   <div class="hero-card">
-    <div class="big">📚</div>
-    <strong>Al je schoolwerk op één plek</strong>
-    <p>Voor mavo/havo. Met zeven vakken en ruimte om samen leermateriaal te delen.</p>
-   </div>
-  </section>
- </div>
-</header>
+<header id="top"><div class="wrap">
+<nav class="nav"><div class="brand"><div class="logo">✦</div>ClassTrainer</div>
+<div class="navlinks"><button class="active" data-scroll="top">Startpagina</button><button data-scroll="vakken">Onze vakken</button><button data-scroll="insturen">Ingestuurd materiaal</button></div></nav>
+<section class="hero"><div><div class="eyebrow">Samen leren • Samen groeien</div><h1>Welkom bij<br>ClassTrainer.</h1>
+<p>De leerplek voor onze klas. Kies je vak, bepaal je moeilijkheid en oefen voor je toetsen.</p><div class="pill">● Titus Brandsma College · Velp · VM1B</div></div>
+<div class="hero-card"><div class="big">📚</div><strong>Al je schoolwerk op één plek</strong><p>Voor mavo/havo. Met zeven vakken, oefentoetsen en cijfers voor je oefenresultaten.</p></div></section>
+</div></header>
 <main class="wrap">
- <section id="vakken">
-  <div class="section-head">
-   <div><h2>Kies een schoolvak</h2><p class="sub">Klik op een vak om te zien wat je kunt oefenen.</p></div>
-   <input class="search" id="search" type="search" placeholder="Zoek een schoolvak...">
-  </div>
-  <div class="grid" id="subjectGrid">
-   <button class="subject" data-name="Biologie"><span class="arrow">↗</span><span class="emoji">🧬</span><h3>Biologie</h3><p>Begrippen, samenvattingen en oefentoetsen</p></button>
-   <button class="subject" data-name="Duits"><span class="arrow">↗</span><span class="emoji">🇩🇪</span><h3>Duits</h3><p>Woordjes, grammatica en oefenen</p></button>
-   <button class="subject" data-name="Geschiedenis"><span class="arrow">↗</span><span class="emoji">🏛️</span><h3>Geschiedenis</h3><p>Tijdvakken, begrippen en oefenvragen</p></button>
-   <button class="subject" data-name="Wiskunde"><span class="arrow">↗</span><span class="emoji">📐</span><h3>Wiskunde</h3><p>Uitleg, sommen en stappenplannen</p></button>
-   <button class="subject" data-name="Nederlands"><span class="arrow">↗</span><span class="emoji">📝</span><h3>Nederlands</h3><p>Lezen, spelling en grammatica</p></button>
-   <button class="subject" data-name="Engels"><span class="arrow">↗</span><span class="emoji">🇬🇧</span><h3>Engels</h3><p>Woordjes, grammatica en lezen</p></button>
-   <button class="subject" data-name="Aardrijkskunde"><span class="arrow">↗</span><span class="emoji">🌍</span><h3>Aardrijkskunde</h3><p>Kaarten, topografie en begrippen</p></button>
-  </div>
-  <div class="panel" id="subjectPanel" aria-live="polite">
-   <div class="panel-top"><div><div class="eyebrow" style="color:#4169e1">Gekozen vak</div><h2 id="panelTitle">Biologie</h2><p class="sub">Kies wat je wilt oefenen. We vullen de vakken met jullie eigen leeroverzichten.</p></div><button class="close" id="closePanel">Sluiten ✕</button></div>
-   <div class="tools">
-    <div class="tool"><span>🗂️</span><b>Flitskaarten</b><p>Oefen begrippen en woordjes met vragen en antwoorden.</p></div>
-    <div class="tool"><span>✍️</span><b>Oefentoets</b><p>Test jezelf met meerkeuzevragen en open vragen.</p></div>
-    <div class="tool"><span>📖</span><b>Samenvatting</b><p>Lees de belangrijkste uitleg per hoofdstuk.</p></div>
-   </div>
-   <p class="sub" style="margin-top:16px">Er staat nog geen lesmateriaal in dit vak. Zodra je een leeroverzicht stuurt, voegen we jullie hoofdstukken toe.</p>
-  </div>
- </section>
- <section class="notice" id="insturen">
-  <div><h2>📨 Ingestuurd door klasgenoten</h2><p>Heeft iemand een goede samenvatting, oefenvragen of begrippenlijst? Stuur die naar jou als beheerder. Jij controleert het materiaal en zet het daarna op de website.</p></div>
-  <button class="btn secondary" id="howButton">Zo werkt het</button>
- </section>
- <section class="info-grid">
-  <div class="info"><div class="icon">🎯</div><h3>Oefen op jouw niveau</h3><p>De opdrachten zijn bedoeld voor VM1B op mavo/havo-niveau.</p></div>
-  <div class="info"><div class="icon">🤝</div><h3>Samen leren</h3><p>Klasgenoten kunnen handig leermateriaal delen. Jij controleert het eerst.</p></div>
-  <div class="info"><div class="icon">📈</div><h3>Stap voor stap beter</h3><p>Herhaal de onderwerpen die je lastig vindt en bereid je goed voor op toetsen.</p></div>
- </section>
+<section id="vakken"><div class="section-head"><div><h2>Kies een schoolvak</h2><p class="sub">Open een vak en kies zelf hoe moeilijk je wilt oefenen.</p></div><input class="search" id="search" type="search" placeholder="Zoek een schoolvak..."></div>
+<div class="grid" id="subjectGrid">
+<button class="subject" data-name="Biologie"><span class="arrow">↗</span><span class="emoji">🧬</span><h3>Biologie</h3><p>Begrippen, samenvattingen en oefentoetsen</p></button>
+<button class="subject" data-name="Duits"><span class="arrow">↗</span><span class="emoji">🇩🇪</span><h3>Duits</h3><p>Woordjes, grammatica en oefenen</p></button>
+<button class="subject" data-name="Geschiedenis"><span class="arrow">↗</span><span class="emoji">🏛️</span><h3>Geschiedenis</h3><p>Tijdvakken, begrippen en oefenvragen</p></button>
+<button class="subject" data-name="Wiskunde"><span class="arrow">↗</span><span class="emoji">📐</span><h3>Wiskunde</h3><p>Uitleg, sommen en stappenplannen</p></button>
+<button class="subject" data-name="Nederlands"><span class="arrow">↗</span><span class="emoji">📝</span><h3>Nederlands</h3><p>Lezen, spelling en grammatica</p></button>
+<button class="subject" data-name="Engels"><span class="arrow">↗</span><span class="emoji">🇬🇧</span><h3>Engels</h3><p>Woordjes, grammatica en lezen</p></button>
+<button class="subject" data-name="Aardrijkskunde"><span class="arrow">↗</span><span class="emoji">🌍</span><h3>Aardrijkskunde</h3><p>Kaarten, topografie en begrippen</p></button>
+</div>
+<div class="panel" id="subjectPanel" aria-live="polite">
+<div class="panel-top"><div><div class="eyebrow" style="color:#4169e1">Gekozen vak</div><h2 id="panelTitle">Aardrijkskunde</h2><p class="sub" id="panelDescription">Kies je niveau en start een oefening.</p></div><button class="close" id="closePanel">Sluiten ✕</button></div>
+<div class="controls"><div class="field"><label for="difficulty">Moeilijkheid</label><select id="difficulty"><option value="makkelijk">Makkelijk</option><option value="gemiddeld" selected>Gemiddeld</option><option value="moeilijk">Moeilijk</option></select></div>
+<div class="field"><label for="quizLength">Aantal vragen</label><select id="quizLength"><option value="5">5 vragen</option><option value="10" selected>10 vragen</option></select></div>
+<button class="btn" id="startQuiz">Start oefentoets</button></div>
+<div class="tools"><div class="tool"><span>🗂️</span><b>Flitskaarten</b><p>Oefen begrippen en woordjes met vragen en antwoorden.</p></div>
+<div class="tool"><span>✍️</span><b>Oefentoets met cijfer</b><p>Maak een toets, bekijk je fouten en krijg direct een cijfer op een schaal van 1 tot 10.</p></div>
+<div class="tool"><span>📖</span><b>Samenvatting</b><p>Lees de belangrijkste uitleg per hoofdstuk.</p></div></div>
+<div class="quiz" id="quiz"><div class="quiz-head"><div><h3 style="margin:0">Oefentoets <span id="quizSubject"></span></h3><p class="sub" id="quizMeta"></p></div><span class="pill" style="margin:0;background:#edf3ff;color:#24428d;border-color:#dce6ff">Kies het beste antwoord</span></div>
+<form id="quizForm"><div id="questions"></div><button class="btn" type="submit">Nakijken en cijfer bekijken</button></form>
+<div class="result" id="result" aria-live="polite"></div></div>
+<p class="sub" id="contentNote" style="margin-top:16px">De moeilijkheidskeuze werkt voor elk vak. We voegen per vak eigen vragen toe zodra het leermateriaal beschikbaar is.</p>
+</div></section>
+<section class="notice" id="insturen"><div><h2>📨 Ingestuurd door klasgenoten</h2><p>Heeft iemand een goede samenvatting, oefenvragen of begrippenlijst? Stuur die naar jou als beheerder. Jij controleert het materiaal en zet het daarna op de website.</p></div><button class="btn secondary" id="howButton">Zo werkt het</button></section>
+<section class="info-grid"><div class="info"><div class="icon">🎯</div><h3>Zelf je niveau kiezen</h3><p>Kies makkelijk, gemiddeld of moeilijk bij ieder schoolvak.</p></div><div class="info"><div class="icon">📝</div><h3>Direct een cijfer</h3><p>Na een oefentoets zie je je score, cijfer en welke antwoorden goed waren.</p></div><div class="info"><div class="icon">🤝</div><h3>Samen leren</h3><p>Klasgenoten kunnen handig leermateriaal delen. Jij controleert het eerst.</p></div></section>
 </main>
 <footer><div class="wrap">ClassTrainer · Titus Brandsma College · VM1B · Mavo/havo<br><span style="display:block;margin-top:6px">Een leerproject voor onze klas</span></div></footer>
 <script>
 const panel=document.getElementById('subjectPanel');
+let currentSubject='';
+const akQuestions={
+ makkelijk:[
+ {q:'Wat betekent bevolkingsdichtheid?',a:['Het gemiddeld aantal inwoners per vierkante kilometer','De manier waarop mensen over een gebied wonen','Het aantal mensen dat verhuist'],c:0,e:"Bevolkingsdichtheid is het gemiddeld aantal inwoners per vierkante kilometer. Het gaat dus om inwoners in verhouding tot de oppervlakte."},
+ {q:'Wat is migratie?',a:['Het groeien van de bevolking','Verhuizen naar een ander land','Het aantal inwoners per kilometer'],c:1,e:"Migratie betekent dat mensen verhuizen naar een ander land. Verhuizen binnen hetzelfde land heet binnenlandse migratie."},
+ {q:'Wat is cultuur?',a:['Alleen de taal van een land','Hoe een groep mensen samenleeft, bijvoorbeeld met taal, geloof en gewoonten','Een gebied met bergen'],c:1,e:"Cultuur is hoe een groep mensen samenleeft. Voorbeelden zijn taal, geloof en gewoonten."},
+ {q:'Wat betekent vergrijzing?',a:['Meer jonge kinderen','Meer mensen die naar het buitenland gaan','Een groter aandeel mensen ouder dan 65 jaar'],c:2,e:"Bij vergrijzing neemt het aandeel mensen ouder dan 65 jaar toe."},
+ {q:'Wat is een dialect?',a:['Een taalvariant die in een bepaalde streek wordt gesproken','Een wereldtaal','Een geloof'],c:0,e:"Een dialect is een taalvariant die in een bepaalde streek wordt gesproken."},
+ {q:'Wat is een vluchteling volgens het leer overzicht?',a:['Iemand die voor werk verhuist','Iemand die wegvlucht voor oorlog of andere bedreigingen','Iemand die in een kolonie woont'],c:1,e:"Een vluchteling is iemand die wegvlucht voor oorlog of andere bedreigingen."},
+ {q:'Wat is bevolkingsspreiding?',a:['De manier waarop mensen over een gebied verdeeld wonen','Het aantal geboorten','Het gemiddelde aantal levensjaren'],c:0,e:"Bevolkingsspreiding gaat over de manier waarop mensen over een gebied verdeeld wonen."},
+ {q:'Wat is een cultuuruiting?',a:['Een gewoonte of traditie waarin een cultuur zichtbaar is','Een bevolkingsgrafiek','Een verhuizing binnen Nederland'],c:0,e:"Een cultuuruiting is een gewoonte of traditie waaraan je een cultuur kunt herkennen."},
+ {q:'Wat is binnenlandse migratie?',a:['Verhuizen naar een ander land','Verhuizen binnen Nederland naar een andere gemeente','Verhuizen vanwege oorlog'],c:1,e:"Binnenlandse migratie betekent verhuizen binnen Nederland, bijvoorbeeld naar een andere gemeente."},
+ {q:'Wat is een multiculturele samenleving?',a:['Een samenleving met één cultuur','Een samenleving met veel verschillende culturen','Een gebied waar niemand woont'],c:1,e:"In een multiculturele samenleving leven mensen met veel verschillende culturen samen."}
+ ],
+ gemiddeld:[
+ {q:'Een gebied heeft 600.000 inwoners en is 300 km² groot. Wat is de bevolkingsdichtheid?',a:['200 inwoners per km²','2.000 inwoners per km²','180.000 inwoners per km²'],c:1,e:"Deel het aantal inwoners door het aantal vierkante kilometers: 600.000 ÷ 300 = 2.000 inwoners per km²."},
+ {q:'Wat is het verschil tussen emigratie en immigratie?',a:['Emigratie is een land verlaten; immigratie is een land binnenkomen om er te wonen','Emigratie is binnen een land verhuizen; immigratie is ouder worden','Er is geen verschil'],c:0,e:"Bij emigratie verlaat iemand een land om ergens anders te wonen. Bij immigratie komt iemand een land binnen om er te wonen."},
+ {q:'Wat laat een bevolkingsgrafiek zien?',a:['De verdeling van mannen en vrouwen per leeftijdsgroep','De verdeling van godsdiensten over de wereld','Het aantal steden per provincie'],c:0,e:"Een bevolkingsgrafiek laat mannen en vrouwen per leeftijdsgroep zien."},
+ {q:'Wat is globalisering?',a:['Gebieden raken wereldwijd steeds sterker met elkaar verbonden','Alle culturen verdwijnen','Mensen verhuizen alleen binnen hun eigen land'],c:0,e:"Globalisering betekent dat gebieden wereldwijd steeds sterker met elkaar verbonden raken."},
+ {q:'Wat is cultuurverspreiding?',a:['Wanneer cultuur zich over andere delen van de wereld verspreidt','Wanneer culturen volledig gescheiden blijven','Wanneer een bevolking ouder wordt'],c:0,e:"Bij cultuurverspreiding verspreidt een cultuur zich naar andere delen van de wereld."},
+ {q:'Wat betekent natuurlijke bevolkingsgroei?',a:['Verandering door migratie','Er worden meer kinderen geboren dan er mensen sterven','Verhuizingen tussen gemeenten'],c:1,e:"Natuurlijke bevolkingsgroei ontstaat doordat er meer mensen worden geboren dan er sterven. Migratie telt hierbij niet mee."},
+ {q:'Wat is een kind van een migrant volgens het leer overzicht?',a:['Een persoon van wie ten minste één ouder in het buitenland is geboren','Iemand die zelf naar het buitenland verhuist','Iemand die ouder is dan 65 jaar'],c:0,e:"Volgens jouw leer overzicht is dit een persoon van wie ten minste één ouder in het buitenland is geboren."},
+ {q:'Waarom verhuizen mensen naar de Randstad?',a:['Voor werk en voorzieningen','Omdat daar geen steden zijn','Alleen vanwege het klimaat'],c:0,e:"In het leer overzicht staat dat mensen naar de Randstad verhuizen voor werk en voorzieningen."},
+ {q:'Wat is een kolonie?',a:['Een gebied waar een ander land de baas was','Een land dat nooit contact heeft met andere landen','Een soort bevolkingsgrafiek'],c:0,e:"Een kolonie is een gebied waar een ander land de baas was."},
+ {q:'Wat is cultuurvermenging?',a:['Elementen van verschillende culturen worden gecombineerd','Een cultuur verdwijnt altijd','Mensen spreken overal dezelfde taal'],c:0,e:"Bij cultuurvermenging worden elementen van verschillende culturen gecombineerd."}
+ ],
+ moeilijk:[
+ {q:'Een bevolkingsgrafiek heeft onderaan brede leeftijdsgroepen en bovenaan smalle. Welke conclusie past het best?',a:['Er zijn relatief veel jongeren en weinig ouderen','Er zijn relatief veel ouderen en weinig jongeren','De bevolking bestaat alleen uit volwassenen'],c:0,e:"Een brede onderkant betekent dat er relatief veel jongeren zijn. Een smalle bovenkant betekent dat er relatief weinig ouderen zijn."},
+ {q:'Een land heeft veel immigratie en evenveel emigratie. Wat kun je daaruit concluderen over het migratiesaldo?',a:['Het migratiesaldo is positief','Het migratiesaldo is negatief','Het migratiesaldo is nul'],c:2,e:"Als er evenveel mensen binnenkomen als vertrekken, is het migratiesaldo nul."},
+ {q:'Een leerling ziet in een winkel producten uit veel landen en gebruikt dagelijks internationale media. Welk begrip past hierbij?',a:['Globalisering','Vergrijzing','Natuurlijke bevolkingsgroei'],c:0,e:"Dit past bij globalisering: landen en gebieden raken wereldwijd met elkaar verbonden."},
+ {q:'Welke uitspraak maakt het verschil tussen cultuurverspreiding en cultuurvermenging duidelijk?',a:['Verspreiding is het overbrengen van cultuur; vermenging is het combineren van cultuurelementen','Beide betekenen precies hetzelfde','Vermenging gaat alleen over verhuizingen'],c:0,e:"Cultuurverspreiding is het verspreiden van cultuur naar andere gebieden. Cultuurvermenging is het combineren van elementen uit verschillende culturen."},
+ {q:'Een stad heeft 90.000 inwoners op 150 km². Een andere stad heeft 120.000 inwoners op 300 km². Welke stad heeft de hoogste bevolkingsdichtheid?',a:['De eerste stad','De tweede stad','Beide even hoog'],c:0,e:"Eerste stad: 90.000 ÷ 150 = 600 inwoners per km². Tweede stad: 120.000 ÷ 300 = 400 inwoners per km². Dus de eerste stad is dichter bevolkt."},
+ {q:'Welke factoren worden in het leer overzicht genoemd als mogelijke migratieredenen?',a:['Economische, politieke, sociale en natuurlijke redenen','Alleen sport en hobby','Alleen leeftijd en geslacht'],c:0,e:"In je leer overzicht staan economische, politieke, sociale en natuurlijke migratieredenen."},
+ {q:'Welke uitspraak over vergrijzing klopt?',a:['Het aandeel mensen ouder dan 65 jaar neemt toe','Het aantal geboorten is altijd hoger dan het aantal sterfgevallen','Iedereen verhuist naar het buitenland'],c:0,e:"Vergrijzing betekent dat het aandeel mensen ouder dan 65 jaar toeneemt."},
+ {q:'Welke uitspraak over cultuurgebieden past bij het leer overzicht?',a:['Gebieden waar culturen veel overeenkomende kenmerken hebben','Gebieden met precies dezelfde bevolkingsdichtheid','Gebieden waar alleen één taal gesproken mag worden'],c:0,e:"Een cultuurgebied is een gebied waar culturen veel overeenkomende kenmerken hebben."},
+ {q:'Waarom is een legenda belangrijk bij het vergelijken van twee kaarten?',a:['Je kunt zien wat de kleuren en symbolen betekenen','Je ziet daarmee automatisch de schaal','Je weet daardoor hoe oud de kaart is'],c:0,e:"De legenda legt uit wat de kleuren en symbolen op de kaart betekenen. Zonder legenda kun je kaartinformatie verkeerd begrijpen."},
+ {q:'Welke conclusie kun je trekken als een land na 1970 minder kinderen geboren ziet worden?',a:['De bevolking vergrijst mogelijk op termijn','De bevolkingsdichtheid wordt meteen nul','Er is automatisch meer immigratie'],c:0,e:"Als er minder kinderen worden geboren, kan het aandeel ouderen op termijn groter worden. Dat kan bijdragen aan vergrijzing."}
+ ]
+};
+function buildQuestions(subject,difficulty,count){
+ if(subject!=='Aardrijkskunde') return [];
+ const pool=akQuestions[difficulty]||akQuestions.gemiddeld;
+ return pool.slice(0,count);
+}
 document.querySelectorAll('.subject').forEach(card=>card.addEventListener('click',()=>{
- document.getElementById('panelTitle').textContent=card.dataset.name;
+ currentSubject=card.dataset.name;
+ document.getElementById('panelTitle').textContent=currentSubject;
+ document.getElementById('quiz').classList.remove('show');
+ document.getElementById('result').classList.remove('show');
+ const ready=currentSubject==='Aardrijkskunde';
+ document.getElementById('contentNote').textContent=ready?'AK-hoofdstuk 2 is toegevoegd op basis van jouw leeroverzicht. Kies de moeilijkheid en maak een oefentoets.':'De moeilijkheidskeuze staat klaar voor dit vak. De oefentoetsvragen worden toegevoegd zodra we het leeroverzicht van dit vak hebben.';
+ document.getElementById('panelDescription').textContent=ready?'Hoofdstuk 2: Bevolking en cultuur. Kies je niveau en start een oefentoets.':'Kies je niveau. We vullen dit vak met jullie eigen leermateriaal.';
  panel.classList.add('show');panel.scrollIntoView({behavior:'smooth',block:'nearest'});
 }));
 document.getElementById('closePanel').addEventListener('click',()=>panel.classList.remove('show'));
-document.getElementById('search').addEventListener('input',e=>{
- const q=e.target.value.toLowerCase();
- document.querySelectorAll('.subject').forEach(card=>card.style.display=card.dataset.name.toLowerCase().includes(q)?'block':'none');
+document.getElementById('search').addEventListener('input',e=>{const q=e.target.value.toLowerCase();document.querySelectorAll('.subject').forEach(card=>card.style.display=card.dataset.name.toLowerCase().includes(q)?'block':'none')});
+document.querySelectorAll('[data-scroll]').forEach(btn=>btn.addEventListener('click',()=>{document.getElementById(btn.dataset.scroll).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.navlinks button').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}));
+document.getElementById('startQuiz').addEventListener('click',()=>{
+ const diff=document.getElementById('difficulty').value, count=Number(document.getElementById('quizLength').value);
+ const questions=buildQuestions(currentSubject,diff,count);
+ if(!questions.length){alert('De moeilijkheidskeuze is ingesteld. De oefenvragen voor '+currentSubject+' voegen we toe zodra je het leeroverzicht van dit vak stuurt.');return;}
+ document.getElementById('quizSubject').textContent='– '+currentSubject;
+ document.getElementById('quizMeta').textContent=diff.charAt(0).toUpperCase()+diff.slice(1)+' · '+questions.length+' vragen';
+ const host=document.getElementById('questions');host.innerHTML='';
+ questions.forEach((item,i)=>{
+  const div=document.createElement('div');div.className='question';
+  const p=document.createElement('p');p.textContent=(i+1)+'. '+item.q;div.appendChild(p);
+  item.a.forEach((answer,j)=>{const label=document.createElement('label');label.className='answer';const input=document.createElement('input');input.type='radio';input.name='q'+i;input.value=j;input.required=true;label.appendChild(input);label.append(' '+answer);div.appendChild(label)});
+  host.appendChild(div);
+ });
+ document.getElementById('quizForm').dataset.questions=JSON.stringify(questions);
+ document.getElementById('result').classList.remove('show');
+ document.getElementById('quiz').classList.add('show');document.getElementById('quiz').scrollIntoView({behavior:'smooth',block:'start'});
 });
-document.querySelectorAll('[data-scroll]').forEach(btn=>btn.addEventListener('click',()=>{
- document.getElementById(btn.dataset.scroll).scrollIntoView({behavior:'smooth'});
- document.querySelectorAll('.navlinks button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
-}));
-document.getElementById('howButton').addEventListener('click',()=>{
- alert('1. Een klasgenoot maakt leermateriaal.\\n2. Die stuurt het naar jou als beheerder.\\n3. Jij controleert of het klopt.\\n4. Daarna voeg je het toe aan het juiste vak.\\n\\nHet e-mailadres koppelen we zodra je weet welk adres je wilt gebruiken.');
+document.getElementById('quizForm').addEventListener('submit',e=>{
+ e.preventDefault();const form=e.currentTarget;const questions=JSON.parse(form.dataset.questions);let correct=0;const feedback=[];
+ questions.forEach((q,i)=>{const chosen=form.querySelector('input[name="q'+i+'"]:checked');const ok=chosen&&Number(chosen.value)===q.c;if(ok)correct++;feedback.push('<div style="margin:10px 0;padding:12px;border-radius:10px;background:'+(ok?'#f4faf7':'#fff7ed')+';border:1px solid '+(ok?'#d5eee1':'#fed7aa')+'"><strong>'+(i+1)+'. '+(ok?'✅ Goed beantwoord':'❌ Niet goed')+'</strong><p style="margin:6px 0">Juiste antwoord: <b>'+q.a[q.c]+'</b></p><p style="margin:6px 0;color:#52617e"><b>Uitleg:</b> '+(q.e||'Bekijk de uitleg bij dit begrip in je samenvatting.')+'</p></div>')});
+ const percent=correct/questions.length*100;const grade=Math.max(1,Math.round((1+9*correct/questions.length)*10)/10);
+ const result=document.getElementById('result');result.innerHTML='<div class="grade">'+grade.toFixed(1).replace('.',',')+'</div><strong>Jouw oefencijfer</strong><p>Je had '+correct+' van de '+questions.length+' vragen goed ('+Math.round(percent)+'%).</p><hr style="border:0;border-top:1px solid #ccebdc;margin:14px 0">'+feedback.join('');
+ result.classList.add('show');result.scrollIntoView({behavior:'smooth',block:'nearest'});
 });
-</script>
-</body>
-</html>
+document.getElementById('howButton').addEventListener('click',()=>alert('1. Een klasgenoot maakt leermateriaal.\\n2. Die stuurt het naar jou als beheerder.\\n3. Jij controleert of het klopt.\\n4. Daarna voeg je het toe aan het juiste vak.'));
+</script></body></html>
