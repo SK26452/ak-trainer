@@ -58,9 +58,39 @@ footer{padding:24px 0;color:#8791a5;font-size:12px;text-align:center;border-top:
 </div>
 <div class="panel" id="subjectPanel" aria-live="polite">
 <div class="panel-top"><div><div class="eyebrow" style="color:#4169e1">Gekozen vak</div><h2 id="panelTitle">Aardrijkskunde</h2><p class="sub" id="panelDescription">Kies je niveau en start een oefening.</p></div><button class="close" id="closePanel">Sluiten ✕</button></div>
-<div class="controls"><div class="field"><label for="difficulty">Moeilijkheid</label><select id="difficulty"><option value="makkelijk">Makkelijk</option><option value="gemiddeld" selected>Gemiddeld</option><option value="moeilijk">Moeilijk</option></select></div>
-<div class="field"><label for="quizLength">Aantal vragen</label><select id="quizLength"><option value="5">5 vragen</option><option value="10" selected>10 vragen</option></select></div>
-<button class="btn" id="startQuiz">Start oefentoets</button></div>
+<div class="controls">
+  <div class="field">
+    <label for="paragraph">Paragraaf</label>
+    <select id="paragraph">
+      <option value="alles">Heel hoofdstuk 2</option>
+      <option value="2.1">2.1 Een aarde vol mensen</option>
+      <option value="2.2">2.2 Cultuur is overal</option>
+      <option value="2.3">2.3 Culturen veranderen</option>
+      <option value="2.4">2.4 De bevolking van Nederland</option>
+      <option value="2.5">2.5 Cultuur in Nederland</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="difficulty">Moeilijkheid</label>
+    <select id="difficulty">
+      <option value="makkelijk">Makkelijk</option>
+      <option value="gemiddeld" selected>Gemiddeld</option>
+      <option value="moeilijk">Moeilijk</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="quizLength">Aantal vragen</label>
+    <select id="quizLength">
+      <option value="5">5 vragen</option>
+      <option value="10" selected>10 vragen</option>
+      <option value="20">20 vragen</option>
+    </select>
+  </div>
+
+  <button class="btn" id="startQuiz">Start oefentoets</button>
+</div>
 <div class="tools"><div class="tool"><span>🗂️</span><b>Flitskaarten</b><p>Oefen begrippen en woordjes met vragen en antwoorden.</p></div>
 <div class="tool"><span>✍️</span><b>Oefentoets met cijfer</b><p>Maak een toets, bekijk je fouten en krijg direct een cijfer op een schaal van 1 tot 10.</p></div>
 <div class="tool"><span>📖</span><b>Samenvatting</b><p>Lees de belangrijkste uitleg per hoofdstuk.</p></div></div>
@@ -116,8 +146,13 @@ const akQuestions={
 };
 function buildQuestions(subject,difficulty,count){
  if(subject!=='Aardrijkskunde') return [];
+
  const pool=akQuestions[difficulty]||akQuestions.gemiddeld;
- return pool.slice(0,count);
+
+ const selected=pool.slice(0,Math.min(count,pool.length));
+
+ return selected;
+}
 }
 document.querySelectorAll('.subject').forEach(card=>card.addEventListener('click',()=>{
  currentSubject=card.dataset.name;
